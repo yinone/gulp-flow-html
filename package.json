@@ -1,0 +1,45 @@
+{
+  "name": "gulp-flow-html",
+  "version": "1.0.0",
+  "description": "Batch transform html file to custom path ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "url": "git+ssh://git@github.com:yinone/gulp-flow-url.git",
+    "type": "git"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "comments": false
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "plugins": [
+      "html"
+    ]
+  },
+  "author": "Eleven",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-util": "^3.0.7",
+    "through2": "^2.0.1"
+  },
+  "devDependencies": {
+    "event-stream": "^3.3.4",
+    "mocha": "^3.1.2",
+    "vinyl": "^2.0.0"
+  }
+}
