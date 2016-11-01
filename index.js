@@ -3,7 +3,7 @@
  * @E-mail: eleven.image@gmail.com
  * @Date:   2016-10-31 17:13:50
  * @Last Modified by:   eleven
- * @Last Modified time: 2016-10-31 22:10:26
+ * @Last Modified time: 2016-11-01 14:34:22
  */
 
 'use strict';
@@ -22,6 +22,8 @@ function generator(content) {
 
     return through.obj(function(file, enc, cb) {
 
+        let targetFile, modname, mainPath, basePath;
+
         if (file.isNull()) {
             cb(null, file);
         }
@@ -31,17 +33,19 @@ function generator(content) {
         }
         if (file.isBuffer()) {
 
-            let modname = path.resolve(process.cwd());
-            let mainPath = path.dirname(file.path);
-            let basePath = mainPath.replace(modname, '');
+            modname = path.resolve(process.cwd());
+            mainPath = path.dirname(file.path);
+            basePath = mainPath.replace(modname, '');
 
-            file.contents = new Buffer(content);
-            console.dir(file)
-            file.extname = 'html';
-            // file.contens = html;
+            targetFile = file.clone({contents: false});
+
+            targetFile.contents = new Buffer(content);
+
+            targetFile.path = path.join(__dirname, basePath, './index.html')
+            
         }
 
-        cb(null, file);
+        cb(null, targetFile);
 
     });
 }
