@@ -1,6 +1,6 @@
 {
   "name": "gulp-flow-html",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Batch transform html file to custom path ",
   "main": "index.js",
   "scripts": {
