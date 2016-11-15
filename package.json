@@ -7,7 +7,7 @@
     "test": "mocha"
   },
   "repository": {
-    "url": "git+ssh://git@github.com:yinone/gulp-flow-url.git",
+    "url": "git+ssh://git@github.com:yinone/gulp-flow-html.git",
     "type": "git"
   },
   "babel": {

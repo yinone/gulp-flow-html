@@ -3,7 +3,7 @@
  * @E-mail: eleven.image@gmail.com
  * @Date:   2016-10-31 17:13:50
  * @Last Modified by:   eleven
- * @Last Modified time: 2016-11-01 14:34:22
+ * @Last Modified time: 2016-11-02 20:46:47
  */
 
 'use strict';
@@ -12,7 +12,7 @@ const through = require('through2');
 const gutil = require('gulp-util');
 const PluginError = gutil.PluginError;
 const path = require('path');
-const PLUGIN_NAME = 'gulp-flow-url';
+const PLUGIN_NAME = 'gulp-flow-html';
 
 function generator(content) {
 
@@ -37,15 +37,11 @@ function generator(content) {
             mainPath = path.dirname(file.path);
             basePath = mainPath.replace(modname, '');
 
-            targetFile = file.clone({contents: false});
-
-            targetFile.contents = new Buffer(content);
-
-            targetFile.path = path.join(__dirname, basePath, './index.html')
+            file.contents = new Buffer(content);
             
         }
 
-        cb(null, targetFile);
+        cb(null, file);
 
     });
 }
